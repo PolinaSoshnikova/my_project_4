@@ -16,12 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from polls.controllers import index
+from polls.controllers import feedback
+from polls.controllers import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index.index),
     path('about/', index.about),
-    path('about/work', index.aboutWork),
-    path('interests/', index.interests)
-
+    path('contacts/', index.contacts),
+    path('hobbies/', index.hobbies),
+    path('photo/', index.photo),
+    path('feedback/', feedback.create),
+    path('feedback/index', feedback.index),
+    path('api/index', api.index),
+    path('skills/', index.skills),
+    path('about/', index.about),
+    path('services/', index.services),
+    path('partfolio/', index.partfolio),
+    path('contact/', index.contact),
 ]

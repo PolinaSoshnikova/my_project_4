@@ -1,21 +1,50 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from polls.models import Feedback
+from polls.models import Item
 
 def index(request):
-    name = request.GET.get('name')
-    return render(request, 'index.html', {'name': name})
+    return render(request, 'index.html', {})
 
 
 def about(request):
-    return HttpResponse("My name is Polina")
+    return render(request, 'about.html', {})
 
 
-def aboutWork(request):
-    return HttpResponse("Software engineer")
+def contacts(request):
+    return render(request, 'contacts.html', {})
 
 
-def interests(request):
-    return render(request, 'interests.html', {'title': 'Интересы'})
+def hobbies(request):
+    return HttpResponse("My hobbies")
+
+
+def photo(request):
+    return HttpResponse("My photo")
+
+
+def services(request):
+    return render(request, 'services.html', {})
+
+
+def skills(request):
+    return render(request, 'skills.html', {})
+
+
+def partfolio(request):
+    return render(request, 'partfolio.html', {})
+
+
+def contact(request):
+    return render(request, 'contact.html', {})
+
+
+
+def index(request):
+    item = Item.objects.all()
+    return render(request, 'index.html', {'items': item})
+
+
 
 
 
